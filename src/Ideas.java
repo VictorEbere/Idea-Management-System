@@ -1,24 +1,28 @@
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 //import java.util.Date;
 
 public class Ideas {
-    private LocalDate date;
+    private LocalDateTime date;
     private String title;
     private String priorityLevel;
     private String description;
 
-    public Ideas(LocalDate date, String title, String priorityLevel, String description) {
+    public Ideas(LocalDateTime date, String title, String priorityLevel, String description) {
         this.date = date;
         this.title = title;
         this.priorityLevel = priorityLevel;
         this.description = description;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public String getDate() {
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy 'Time:' hh:mm:ss");
+
+        return date.format(formatter);
     }
 
-    public void setDate(LocalDate date) { this.date = date; }
+    public void setDate(LocalDateTime date) { this.date = date; }
 
     public String getTitle() {
         return title;

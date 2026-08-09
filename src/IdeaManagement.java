@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 
@@ -86,10 +87,14 @@ public class IdeaManagement {
     }
 
     public Ideas createIdea(){
-        System.out.print("Enter Date (MM/dd/yyyy): ");
-        String dateInput = keyboard.nextLine();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        LocalDate date = LocalDate.parse(dateInput, format);
+        //System.out.print("Enter Date (MM/dd/yyyy): ");
+        //String dateInput = keyboard.nextLine();
+        //DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        //LocalDate date = LocalDate.parse(dateInput, format);
+        LocalDateTime date = LocalDateTime.now();
+
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/dd/yyyy 'Time:' hh:mm:ss.SS");
+        //System.out.println(date.format(formatter));
 
         System.out.print("Enter Title: ");
         String ideaTitle = keyboard.nextLine();

@@ -7,6 +7,8 @@ public class FileManager {
             out.write("Date: " + idea.getDate());
             out.newLine();
 
+            //out.write("Time: " + idea.);
+
             out.write("Title: " + (idea.getTitle()).toUpperCase());
             out.newLine();
 
