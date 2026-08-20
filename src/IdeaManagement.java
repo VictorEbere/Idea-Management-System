@@ -1,12 +1,13 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 
 public class IdeaManagement {
     private final Scanner keyboard = new Scanner(System.in);
     private final FileManager fileManager = new FileManager();
-    //LocalDate date;
+    ArrayList<Ideas> ideaList = new ArrayList<>();
 
     public void run(){
         boolean running = true;
@@ -116,6 +117,7 @@ public class IdeaManagement {
 
         Ideas idea = new Ideas(date, ideaTitle, priorityLevel, description);
         System.out.println("Your Idea Has Been Made!!!");
+        ideaList.add(idea);
 
         return idea;
     }
