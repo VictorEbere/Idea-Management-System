@@ -128,7 +128,7 @@ public class IdeaManagement {
         System.out.println("    Welcome to Idea Manger!!!   ");
         System.out.println("********************************");
 
-        System.out.println("1. Create new Idea file \n2. Add new Idea \n3. View Idea \n4. Edit Idea \n5. Delete Idea \n6. Exit Program");
+        System.out.println("1. Create new Idea file \n2. Add new Idea to existing file \n3. View Idea \n4. Edit Idea \n5. Delete Idea \n6. Exit Program");
         System.out.print("What would you like to do today?: ");
     }
 
@@ -136,7 +136,12 @@ public class IdeaManagement {
         Ideas idea = createIdea();
 
         System.out.print("Enter file name: ");
-        String fileName = keyboard.nextLine() + ".txt";
+        String fileName;
+        if(keyboard.nextLine().contains(".txt")){
+            fileName = keyboard.nextLine();
+        }else{
+            fileName = keyboard.nextLine() + ".txt";
+        }
         fileManager.createFile(idea, fileName);
         System.out.println("Idea/s saved successfully in "+ fileName +"\n");
 
@@ -171,15 +176,44 @@ public class IdeaManagement {
     }
 
     public void editIdea(){
+        /*
         System.out.print("which Idea would you like to edit?: ");
         String ideaChoice = keyboard.nextLine();
 
+        System.out.print("What would you like to edit? \n1. Title \n2. Date \n3. Priority Level \n4. Description \n");
+        int choice = keyboard.nextInt();
 
+        switch(choice){
+            case 1:
+                fileManager.editFileTitle();
+                break;
+            case 2:
+                fileManager.editFileDate();
+                break;
+            case 3:
+                fileManager.editFilePriorityLvl();
+                break;
+            case 4:
+                fileManager.editFileDescription();
+                break;
+            default:
+                System.out.println("Invalid input!!!");
+        }
+        */
 
     }
 
     public void deleteIdea(){
+        System.out.println("What Idea would you like to delete?");
+        System.out.print("Enter the file name: ");
+        String file = keyboard.nextLine();
 
+        if(file.contains(".txt")){
+            fileManager.deleteFile(file);
+        }else{
+            String fileName = file + ".txt";
+            fileManager.deleteFile(fileName);
+        }
     }
 
 }
